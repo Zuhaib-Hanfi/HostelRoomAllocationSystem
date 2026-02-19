@@ -36,7 +36,7 @@ function SearchAllocate({ rooms, onAllocate }) {
   }
 
   return (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-md">
       <div className="mb-4">
         <h2 className="text-sm font-semibold tracking-wide text-slate-800">
           Search &amp; Allocate
@@ -58,7 +58,7 @@ function SearchAllocate({ rooms, onAllocate }) {
             value={students}
             onChange={(e) => setStudents(e.target.value)}
             placeholder="Minimum required capacity"
-            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none ring-0 transition focus:border-slate-900 focus:bg-white focus:ring-1 focus:ring-slate-900/5"
+            className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm outline-none ring-0 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100"
           />
         </div>
 
@@ -70,7 +70,7 @@ function SearchAllocate({ rooms, onAllocate }) {
             <select
               value={acFilter}
               onChange={(e) => setAcFilter(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs outline-none ring-0 transition focus:border-slate-900 focus:bg-white focus:ring-1 focus:ring-slate-900/5"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs outline-none ring-0 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100"
             >
               <option value="any">Any</option>
               <option value="yes">Yes</option>
@@ -85,7 +85,7 @@ function SearchAllocate({ rooms, onAllocate }) {
             <select
               value={washroomFilter}
               onChange={(e) => setWashroomFilter(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs outline-none ring-0 transition focus:border-slate-900 focus:bg-white focus:ring-1 focus:ring-slate-900/5"
+              className="w-full rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs outline-none ring-0 transition focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-100"
             >
               <option value="any">Any</option>
               <option value="yes">Yes</option>
@@ -97,7 +97,7 @@ function SearchAllocate({ rooms, onAllocate }) {
         <button
           type="button"
           onClick={handleAllocate}
-          className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-slate-900 px-4 py-2.5 text-xs font-medium text-white shadow-sm transition hover:bg-slate-800 active:translate-y-px"
+          className="mt-2 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-xs font-medium text-white shadow-md transition hover:bg-blue-700 active:translate-y-px"
         >
           Allocate Room
         </button>

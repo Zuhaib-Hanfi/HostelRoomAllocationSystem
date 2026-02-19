@@ -8,6 +8,26 @@ function App() {
   const [output, setOutput] = useState(null)
 
   const addRoom = (room) => {
+    if (!room.roomNo || typeof room.capacity !== 'number' || !Number.isFinite(room.capacity) || room.capacity <= 0) {
+      setOutput({
+        type: 'error',
+        message: 'Room details are invalid. Please provide a room number and a capacity greater than 0.'
+      })
+      return
+    }
+
+    const exists = rooms.some(
+      (r) => r.roomNo.trim().toLowerCase() === room.roomNo.trim().toLowerCase()
+    )
+
+    if (exists) {
+      setOutput({
+        type: 'error',
+        message: `Room ${room.roomNo} already exists. Please use a unique room number.`
+      })
+      return
+    }
+
     setRooms((prev) => [...prev, { ...room, id: Date.now() + Math.random() }])
     setOutput({
       type: 'success',
@@ -16,6 +36,14 @@ function App() {
   }
 
   const allocateRoom = (students, needsAC, needsWashroom) => {
+    if (!Number.isFinite(students) || students <= 0) {
+      setOutput({
+        type: 'error',
+        message: 'Number of students must be greater than 0 to allocate a room.'
+      })
+      return
+    }
+
     const suitableRooms = rooms.filter((room) => {
       if (room.capacity < students) return false
       if (needsAC && !room.hasAC) return false
